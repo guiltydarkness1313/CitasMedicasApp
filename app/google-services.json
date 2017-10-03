@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "593228056822",
+    "firebase_url": "https://gestion-de-citas-app.firebaseio.com",
+    "project_id": "gestion-de-citas-app",
+    "storage_bucket": "gestion-de-citas-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593228056822:android:d8077ce8c0f52b42",
+        "android_client_info": {
+          "package_name": "com.shibuyaxpress.citasmedicasapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593228056822-ghj0mabjlg5jdfvgqetgnvh2gv0ohctv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shibuyaxpress.citasmedicasapp",
+            "certificate_hash": "0e068ef690d174319d5d773ea6f35a277edf7ad8"
+          }
+        },
+        {
+          "client_id": "593228056822-7eifnhsia4o4ueui0gmp6ti7bso05dup.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvfDQL2LlO2DC9fa5cXu2i1TJFGTF93Rc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "593228056822-7eifnhsia4o4ueui0gmp6ti7bso05dup.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

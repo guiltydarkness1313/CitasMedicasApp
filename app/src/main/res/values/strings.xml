@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CitasMedicasApp</string>
+    <string name="text_cuenta_google">¿Tiene una cuenta de Google?</string>
+    <string name="txt_log_in">Iniciar Sesión</string>
+    <string name="user_txt">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="new_user">Nuevo usuario</string>
+</resources>
