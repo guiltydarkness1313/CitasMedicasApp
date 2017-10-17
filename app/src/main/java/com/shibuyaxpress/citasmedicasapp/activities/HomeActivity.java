@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.shibuyaxpress.citasmedicasapp.R;
 
-public class HomeActivity extends AppCompatActivity {
+public class    HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
