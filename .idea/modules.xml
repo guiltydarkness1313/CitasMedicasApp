@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CitasMedicasApp.iml" filepath="$PROJECT_DIR$/CitasMedicasApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CitasMedicasApp.iml" filepath="$PROJECT_DIR$/.idea/CitasMedicasApp.iml" />
+      <module fileurl="file://C:\Users\paulf\AndroidStudioProjects\CitasMedicasApp\CitasMedicasApp.iml" filepath="C:\Users\paulf\AndroidStudioProjects\CitasMedicasApp\CitasMedicasApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

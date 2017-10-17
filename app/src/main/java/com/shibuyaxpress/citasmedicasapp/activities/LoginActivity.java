@@ -1,4 +1,4 @@
-package com.shibuyaxpress.citasmedicasapp;
+package com.shibuyaxpress.citasmedicasapp.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,13 +26,23 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.shibuyaxpress.citasmedicasapp.R;
+import com.shibuyaxpress.citasmedicasapp.interfaces.Api;
+import com.shibuyaxpress.citasmedicasapp.models.Usuarios;
+
+import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
 
-    private Button inicio;
-    private EditText txtEmail,txtPassword;
+    private Button inicio,btnLogin;
+    private EditText txtEmail,txtUsername,txtPassword;
     //?
     private static final int RC_SIGN_IN=9001;
     //inicio de api de google por la parte cliente
@@ -44,6 +54,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     public Intent launcher;
 
+    private String BASE_URL ="http://54.149.168.221/";
+
     //variable firebase
     FirebaseAuth mfirebaseAuth;
     FirebaseAuth.AuthStateListener mAuthListener;
@@ -53,9 +65,22 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         inicio=findViewById(R.id.btnInicio);
         inicio.setOnClickListener(this);
+        //formulario
+        txtUsername=findViewById(R.id.txtUser);
+        txtPassword=findViewById(R.id.txtPassword);
+        btnLogin=findViewById(R.id.btnLogin);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username=txtUsername.getText().toString();
+                String password=txtPassword.getText().toString();
+                loginProcessRetro(username,password);
+            }
+        });
 
         //creo que aca se puede filtrar por la entidad
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -134,10 +159,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 }
                 //pDialog.dismissWithAnimation();
                 break;
-            /*case R.id.btnLogin:
-                Intent launcher=new Intent();
-                startActivity(launcher);
-                finish();*/
+
         }
     }
 
@@ -235,5 +257,40 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         }
                     }
                 });
+    }
+
+    private Api getInterfaceService(){
+        Retrofit retrofit= new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        final Api api=retrofit.create(Api.class);
+        return api;
+    }
+
+    private void loginProcessRetro(final String username, String password){
+        Api api=this.getInterfaceService();
+        Call<List<Usuarios>> mService = api.authenticate(username,password);
+        mService.enqueue(new Callback<List<Usuarios>>() {
+            @Override
+            public void onResponse(Call<List<Usuarios>> call, Response<List<Usuarios>> response) {
+
+                List<Usuarios> lista=response.body();
+                if(lista.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"error en datos",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    launcher=new Intent(LoginActivity.this,HomeActivity.class);
+                    startActivity(launcher);
+                    Toast.makeText(getApplicationContext(),"exito",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Usuarios>> call, Throwable t) {
+
+                Toast.makeText(getApplicationContext(),"no hay conexión",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

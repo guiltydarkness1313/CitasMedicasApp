@@ -1,7 +1,9 @@
-package com.shibuyaxpress.citasmedicasapp;
+package com.shibuyaxpress.citasmedicasapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.shibuyaxpress.citasmedicasapp.R;
 
 public class HomeActivity extends AppCompatActivity {
 

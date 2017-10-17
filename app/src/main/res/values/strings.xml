@@ -4,5 +4,9 @@
     <string name="txt_log_in">Iniciar Sesión</string>
     <string name="user_txt">Usuario</string>
     <string name="password">Contraseña</string>
-    <string name="new_user">Nuevo usuario</string>
+    <string name="new_user">¿Nuevo usuario?</string>
+    <string name="slogan_2">Tu comunicación nos importa</string>
+    <string name="sub_slogan_2">Contáctate con tu doctor de cabecera sin perder tiempo</string>
+    <string name="app_intro_skip_button">Saltar</string>
+    <string name="app_intro_done_button">Hecho</string>
 </resources>
