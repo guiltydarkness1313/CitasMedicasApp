@@ -258,7 +258,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     }
                 });
     }
-
+ //validacion del login
     private Api getInterfaceService(){
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl(BASE_URL)

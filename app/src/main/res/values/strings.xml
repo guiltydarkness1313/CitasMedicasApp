@@ -9,4 +9,10 @@
     <string name="sub_slogan_2">Contáctate con tu doctor de cabecera sin perder tiempo</string>
     <string name="app_intro_skip_button">Saltar</string>
     <string name="app_intro_done_button">Hecho</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
