@@ -276,13 +276,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             public void onResponse(Call<List<Usuarios>> call, Response<List<Usuarios>> response) {
 
                 List<Usuarios> lista=response.body();
-                if(lista.isEmpty()){
-                    Toast.makeText(getApplicationContext(),"error en datos",Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    launcher=new Intent(LoginActivity.this,HomeActivity.class);
-                    startActivity(launcher);
-                    Toast.makeText(getApplicationContext(),"exito",Toast.LENGTH_SHORT).show();
+                if (lista != null) {
+                    if(lista.isEmpty()){
+                        Toast.makeText(getApplicationContext(),"error en datos",Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        launcher=new Intent(LoginActivity.this,HomeActivity.class);
+                        startActivity(launcher);
+                        Toast.makeText(getApplicationContext(),"exito",Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
