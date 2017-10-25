@@ -21,7 +21,10 @@
         </activity>
         <activity android:name=".activities.IntroActivity" />
         <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.HomeActivity"></activity>
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -26,6 +26,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.shibuyaxpress.citasmedicasapp.MenuActivity;
 import com.shibuyaxpress.citasmedicasapp.R;
 import com.shibuyaxpress.citasmedicasapp.interfaces.Api;
 import com.shibuyaxpress.citasmedicasapp.models.Usuarios;
@@ -131,11 +132,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         });
         bob.show();
     }
+
+
     @Override
     public void onStart(){
         super.onStart();
         mfirebaseAuth.addAuthStateListener(mAuthListener);
     }
+
     @Override
     public void onStop(){
         super.onStop();
@@ -143,6 +147,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             mfirebaseAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -194,7 +199,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 UIDgo=account.getId();
                 imagenperfil= String.valueOf(account.getPhotoUrl());
                 //desde que se obtienen los datos de cada usuario en firebase
-                launcher=new Intent(LoginActivity.this,HomeActivity.class);
+                launcher=new Intent(LoginActivity.this,MenuActivity.class);
                 launcher.putExtra("nombre",mFullName);
                 launcher.putExtra("imagen",imagenperfil);
                 launcher.putExtra("email",mEmail);
@@ -224,7 +229,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         String dominio="@tecsup.edu.pe";
         found=correo.contains(dominio);
         if(found){
-            Intent launcher=new Intent(this,HomeActivity.class);
+            Intent launcher=new Intent(this,MenuActivity.class);
             startActivity(launcher);
         }else{
             Toast.makeText(this,"Acceso denegado",Toast.LENGTH_SHORT).show();
@@ -278,7 +283,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 List<Usuarios> lista=response.body();
                 assert lista != null;
                 if (!lista.isEmpty()) {
-                    launcher=new Intent(LoginActivity.this,HomeActivity.class);
+                    launcher=new Intent(LoginActivity.this,MenuActivity.class);
                     startActivity(launcher);
                     Toast.makeText(getApplicationContext(),"exito",Toast.LENGTH_SHORT).show();
                 } else {
